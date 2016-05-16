@@ -16,7 +16,42 @@
 </head>
 <body>
 
+    <header>
+        <h1 id="logo">The Brave UX App</h1>
+        <a href="#0" id="nav-toggle">Menu <span class="icon-hamburger"><span></span></span></a>
+    </header>
 
+    <div id="main">
+        <div class="container">
+
+            <img class="icon__page icon__page--flag" src="images/icon-flag.svg" width="40" height="47" alt="Flag icon">
+            <p class="note">Do NOT bookmark this page.</p>
+
+            <form name="signup" id="form__signup" action="" method="post">
+                <h2>Sign Up</h2>
+
+                <p>
+                    <input name="signup__username" type="text" value="" placeholder="Username">
+                </p>
+                <p>
+                    <input name="signup__password" type="password" value="" placeholder="Password">
+                    <a href="#0" id="signup__password--toggle" title="Toggle password visibility"><img src="images/icon-eye.svg" width="22" height="15" alt="Eye icon"></a>
+                </p>
+                <p>
+                    <input name="signup__submit" type="submit" value="Sign Up">
+                    <a href="#0" id="signup__help">Need help?</a>
+                </p>
+
+            </form>
+
+        </div>
+    </div><!-- END #main -->
+
+    <footer>
+        <div class="container">
+            Powered by Brave UX
+        </div>
+    </footer>
 
     <script>
         // your code goes here ...

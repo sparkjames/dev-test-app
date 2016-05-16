@@ -1,5 +1,14 @@
+// Config (variables, mixins, etc.)
+@import 'config.scss';
+
 // Reset
 @import 'reset.scss';
 
-// Typography ( all the base font items - families, sizes, line-heights, etc. )
+// Typography (all the base font items - families, sizes, line-heights, etc.)
 @import 'typography.scss';
+
+@import 'layout.scss';
+
+// Modules
+@import 'header.scss';
+@import 'page.scss';
