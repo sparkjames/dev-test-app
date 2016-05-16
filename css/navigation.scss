@@ -1,0 +1,28 @@
+#nav__main {
+    background-color: $primary;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    transform: translate(110%,0);
+    transition: transform 400ms ease-in;
+    width: 70%;
+    z-index: 100;
+
+    a {
+        background-color: $primary;
+        color: $text-contrast;
+        display: block;
+        font-size: .9rem;
+        padding: .7em 1.4em;
+        text-decoration: none;
+    }
+
+    .highlight a {
+        background-color: $secondary;
+    }
+
+    &.active {
+        transform: translate(0,0);
+    }
+
+}

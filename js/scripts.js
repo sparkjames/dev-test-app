@@ -1,6 +1,34 @@
 //console.log(document);
 //document.querySelectorAll('.my #awesome selector');
 
+menu_button = document.getElementById('nav__toggle');
+nav_element = document.getElementById('nav__main');
+
+menu_button.addEventListener('click', toggle_nav);
+function toggle_nav(){
+    className = 'active';
+    
+    if (nav_element.classList) {
+        nav_element.classList.toggle(className);
+    } else {
+        var classes = nav_element.className.split(' ');
+        var existingIndex = classes.indexOf(className);
+
+        if (existingIndex >= 0)
+        classes.splice(existingIndex, 1);
+        else
+        classes.push(className);
+
+        nav_element.className = classes.join(' ');
+    }
+}
+
+
+
+
+
+
+
 signup_form = document.getElementById('form__signup');
 //console.log(signup_form);
 
