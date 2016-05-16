@@ -89,7 +89,7 @@ gulp.task( 'watch', function() {
 	gulp.watch( themePath + '**/**/*.scss', [ 'scss' ] );
 
 	// Watch js files
-	//gulp.watch( themePath + 'js/development/**/*.js', [ 'scripts' ] );
+	gulp.watch( themePath + 'js/development/**/*.js', [ 'scripts' ] );
 
 	// Watch img Files
 	gulp.watch( themePath + 'images/uncompressed/**', [ 'images' ] );
@@ -98,5 +98,5 @@ gulp.task( 'watch', function() {
 
 
 // Default task -- runs scss and watch functions
-//gulp.task( 'default', ['images', 'scripts', 'scss', 'watch'], function() {});
-gulp.task( 'default', ['images', 'scss', 'watch'], function() {});
+gulp.task( 'default', ['images', 'scripts', 'scss', 'watch'], function() {});
+//gulp.task( 'default', ['images', 'scss', 'watch'], function() {});
