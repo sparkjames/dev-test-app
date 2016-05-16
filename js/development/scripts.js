@@ -10,6 +10,7 @@ function validate_form(e){
     //alert('ohai');
 
     var errors = [];
+    var error_div = document.getElementById('form-error');
     var field_username = document.getElementById('signup__username');
     var field_password = document.getElementById('signup__password');
     var form_is_valid = false;
@@ -33,36 +34,27 @@ function validate_form(e){
 
 
     // Remove any error classes that may have already been added by an invalid form submission.
-    if (field_username.parentNode.classList) {
-        field_username.parentNode.classList.remove('has-error');
-    } else {
-        field_username.parentNode.className = '';
-    }
-
-    if (field_password.parentNode.classList) {
-        field_password.parentNode.classList.remove('has-error');
-    } else {
-        field_password.parentNode.className = '';
-    }
+    removeClasses(field_username.parentNode);
+    removeClasses(field_password.parentNode);
+    removeClasses(error_div);
 
 
     // At this point if the errors array has a length, that means there are validation errors. Otherwise if it's empty, the form validated fine.
     //console.log(errors);
     if( errors.length > 0 ){
-        var field_username_parent = field_username.parentNode;
-        var field_password_parent = field_password.parentNode;
-
+        // Go through each error, use the values as the ID selector, and get each form field's parent element (should be a <p>).
         for(i=0; i<errors.length; i++){
             var this_field_parent = document.getElementById(errors[i]).parentNode;
 
-            if( this_field_parent.classList ){
-                this_field_parent.classList.add('has-error');
-            } else {
-                this_field_parent.className += ' ' + className;
-            }
+            // Add the 'has-error' class to the parent element.
+            addErrorClass(this_field_parent);
 
         }
 
+        // Now just add the 'has-error' class to the main error message <div>.
+        addErrorClass(error_div);
+
+        // Prevent form submit
         e.preventDefault();
 
     } else {
@@ -71,4 +63,23 @@ function validate_form(e){
 
     //console.log(form_is_valid);
     return form_is_valid;
+}
+
+
+
+
+function addErrorClass(element){
+    if( element.classList ){
+        element.classList.add('has-error');
+    } else {
+        element.className += ' ' + className;
+    }
+}
+
+function removeClasses(element){
+    if (element.classList) {
+        element.classList.remove('has-error');
+    } else {
+        element.className = '';
+    }
 }
