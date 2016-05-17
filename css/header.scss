@@ -22,6 +22,7 @@ header {
 #form-error {
     font-size: .9rem;
     background-color: $alert;
+    box-shadow: 0 1px 10px 4px rgba(0,0,0,.25);
     color: $text-contrast;
     content: "Your username or password wasn't recognized.";
     left: 0;
@@ -48,49 +49,4 @@ header {
     letter-spacing: -.015em;
     margin-bottom: 0;
     padding: 1.25em 1.7em;
-}
-
-
-
-#nav__toggle {
-    background-color: $primary;
-    color: $text-contrast;
-    display: inline-block;
-    float: right;
-    padding: 1.25em;
-    text-decoration: none;
-}
-
-.icon-hamburger {
-    display: inline-block;
-    height: 1em;
-    margin-left: .5em;
-    width: 1em;
-
-    span {
-        background-color: $text-contrast;
-        display: inherit;
-        height: .125em;
-        position: relative;
-        width: 100%;
-
-        &:before,
-        &:after {
-            background-color: $text-contrast;
-            content: '';
-            display: inherit;
-            height: inherit;
-            position: absolute;
-            width: inherit;
-        }
-
-        &:before {
-            top: -.5em;
-        }
-
-        &:after {
-            top: -.25em;
-        }
-    }
-
 }

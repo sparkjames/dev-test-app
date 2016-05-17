@@ -1,10 +1,67 @@
+// The <a> that toggles the slide animation for the main nav.
+#nav__toggle {
+    background-color: $primary;
+    color: $text-contrast;
+    display: inline-block;
+    float: right;
+    padding: 1.25em;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    top: 0;
+}
+
+
+// The hamburger icon within #nav__toggle, scales based on font-size.
+.icon-hamburger {
+    display: inline-block;
+    font-size: 1em;
+    height: 1em;
+    margin-left: .5em;
+    width: 1em;
+    // The easing here is meant to match up with the easing on #nav__main. The delay is meant to give the <nav> time to slide out from the right, I just eyeballed it and set the delay for when the left side of the <nav> matches the left side of #nav__toggle.
+    transition: margin 280ms cubic-bezier(.9,.05,.7,1) 60ms;
+
+    // The main <span> is the "bottom bun". :before is the "top bun" and :after is the "patty".
+    span {
+        background-color: $text-contrast;
+        display: inherit;
+        height: .125em;
+        position: relative;
+        width: 100%;
+
+        &:before,
+        &:after {
+            background-color: $text-contrast;
+            content: '';
+            display: inherit;
+            height: inherit;
+            position: absolute;
+            width: inherit;
+        }
+
+        &:before {
+            top: -.5em;
+        }
+
+        &:after {
+            top: -.25em;
+        }
+    }
+
+}
+
+
+
+// The <nav> element that contains the main navigation. Slides in and out from the right.
 #nav__main {
     background-color: $primary;
     height: 100%;
     position: absolute;
     right: 0;
     transform: translate(110%,0);
-    transition: transform 400ms ease-in;
+    // For explanation of the transition, see the transition property for .icon-hamburger
+    transition: transform 500ms cubic-bezier(.9,.05,.59,.97);
     width: 70%;
     z-index: 100;
 
@@ -21,8 +78,19 @@
         background-color: $secondary;
     }
 
-    &.active {
-        transform: translate(0,0);
+}
+
+
+// For explanation of the transition, see the transition property for .icon-hamburger
+// This just changes the easing/timing when the nav is active to create different opening/closing animations.
+body.active-nav {
+
+    .icon-hamburger {
+        transition: margin 280ms cubic-bezier(.72,.72,.7,1) 60ms;
     }
 
+    #nav__main {
+        transform: translate(0,0);
+        transition: transform 500ms cubic-bezier(.5,.99,.5,1);
+    }
 }
