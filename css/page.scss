@@ -55,6 +55,10 @@
         background-color: transparent;
         border: none;
         width: 12em;
+
+        @media screen and (max-width:345px) {
+            width: 9.5em;
+        }
     }
 
     input[type='submit'] {
