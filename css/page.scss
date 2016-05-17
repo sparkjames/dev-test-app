@@ -18,10 +18,11 @@
 }
 
 
-
+// The <form> element
 #form__signup {
     margin-top: 1.7em;
 
+    // The <p>s act like rows for the labels/inputs. I would normally use flex here for the row layout, but since it needed to be compatiable with IE9+ I wasn't sure about using it.
     p {
         background-color: $text-contrast;
         border-radius: 4px;
@@ -80,6 +81,8 @@
 
 }
 
+
+// This is the <a> for the eye icon, sits on top of the password field.
 #signup__password--toggle {
     display: block;
     position: absolute;
@@ -87,6 +90,7 @@
     right: 6px;
     transform: translate(0, -50%);
 }
+
 
 #signup__help {
     color: $text;
