@@ -5,6 +5,11 @@ body {
     background-color: $bg-page;
 }
 
+#wrapper {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
 .container {
     padding: 2em 1.7em;
 }
