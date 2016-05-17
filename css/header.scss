@@ -3,22 +3,10 @@ header {
     background-color: $bg-header;
     font-size: .9rem;
     position: relative;
-    z-index: 10;
-
-    // &:after {
-    //     background-color: $alert;
-    //     color: $text-contrast;
-    //     content: "Your username or password wasn't recognized.";
-    //     left: 0;
-    //     padding: 1.25em;
-    //     position: absolute;
-    //     top: 0;
-    //     transition: transform 200ms ease;
-    //     transform: translate(0, 100%);
-    //     width: 100%;
-    // }
+    z-index: 10; // Keeps this above the form error message, leaves a little room for future things.
 }
 
+// This will appear to slide down from underneath the <header> as long as it has a smaller z-index. Javascript adds the .has-error class to toggle the transition animation.
 #form-error {
     font-size: .9rem;
     background-color: $alert;
@@ -48,5 +36,5 @@ header {
     display: inline-block;
     letter-spacing: -.015em;
     margin-bottom: 0;
-    padding: 1.25em 1.7em;
+    padding: 1.25em 1.7em; // As long as the padding-top and padding-bottom are the same for this and #nav__toggle, the height of the header will be consistent.
 }

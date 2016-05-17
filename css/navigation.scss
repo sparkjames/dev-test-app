@@ -1,10 +1,13 @@
+// The navigation that slides in is two different containers with transition animations. Javascript toggles the class .active-nav to the <body>, the CSS does the rest. Since I couldn't match the animations of the Menu button (#nav__toggle) with the main navigation container (#nav__main) to make it look like it's all one container, I staggered the animations a bit to make it look okay. Tried to eyeball the bezier curves as best I could based on the provided .gif file.
+
+
 // The <a> that toggles the slide animation for the main nav.
 #nav__toggle {
     background-color: $primary;
     color: $text-contrast;
     display: inline-block;
     float: right;
-    padding: 1.25em;
+    padding: 1.25em; // As long as the padding-top and padding-bottom are the same for this and #nav__toggle, the height of the header will be consistent.
     position: absolute;
     right: 0;
     text-decoration: none;
@@ -19,8 +22,7 @@
     height: 1em;
     margin-left: .5em;
     width: 1em;
-    // The easing here is meant to match up with the easing on #nav__main. The delay is meant to give the <nav> time to slide out from the right, I just eyeballed it and set the delay for when the left side of the <nav> matches the left side of #nav__toggle.
-    transition: margin 280ms cubic-bezier(.9,.05,.7,1) 60ms;
+    transition: margin 280ms cubic-bezier(.9,.05,.7,1) 150ms;
 
     // The main <span> is the "bottom bun". :before is the "top bun" and :after is the "patty".
     span {
@@ -60,7 +62,7 @@
     position: absolute;
     right: 0;
     transform: translate(110%,0);
-    // For explanation of the transition, see the transition property for .icon-hamburger
+    // For an explanation of the transition, see the explanation at the top of this file.
     transition: transform 500ms cubic-bezier(.9,.05,.59,.97);
     width: 70%;
     z-index: 100;
@@ -72,25 +74,34 @@
         font-size: .9rem;
         padding: .7em 1.4em;
         text-decoration: none;
+        transition: background-color 100ms linear;
+
+        &:hover {
+            background-color: lighten($primary, 10%);
+        }
     }
 
     .highlight a {
         background-color: $secondary;
+
+        &:hover {
+            background-color: lighten($primary, 10%);
+        }
     }
 
 }
 
 
-// For explanation of the transition, see the transition property for .icon-hamburger
+// For an explanation of the transitions, see the explanation at the top of this file.
 // This just changes the easing/timing when the nav is active to create different opening/closing animations.
 body.active-nav {
 
     .icon-hamburger {
-        transition: margin 280ms cubic-bezier(.72,.72,.7,1) 60ms;
+        transition: margin 400ms cubic-bezier(0,.41,.33,1);
     }
 
     #nav__main {
         transform: translate(0,0);
-        transition: transform 500ms cubic-bezier(.5,.99,.5,1);
+        transition: transform 400ms cubic-bezier(0,.41,.33,1) 150ms;
     }
 }

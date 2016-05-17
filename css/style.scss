@@ -1,3 +1,5 @@
+// This is the main file that gets compiled and compressed. Gulp also adds browser prefixes automatically.
+
 // Config (variables, mixins, etc.)
 @import 'config.scss';
 
@@ -10,6 +12,9 @@
 @import 'layout.scss';
 
 // Modules
+// Things are ordered mainly in order they appear in the HTML.
+// Tried to use BEM naming convention where appliclable.
 @import 'header.scss';
 @import 'navigation.scss';
 @import 'page.scss';
+@import 'footer.scss';

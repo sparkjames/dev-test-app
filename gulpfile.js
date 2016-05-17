@@ -57,7 +57,7 @@ var onError = function( err ) {
 gulp.task('scss', function () {
 	return sass(themePath + 'css/style.scss', { sourcemap: false })
 		.on('error', sass.logError)
-		.pipe(autoprefixer('last 4 version'))
+		.pipe(autoprefixer('last 2 version'))
 		.pipe(minifyCSS({keepBreaks:false}))
 		.pipe(gulp.dest(themePath + 'css/'))
 		.pipe(notify({ message: 'Scss task complete' }));
