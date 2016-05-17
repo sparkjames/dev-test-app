@@ -2,7 +2,9 @@ header {
     color: $text-contrast;
     background-color: $bg-header;
     font-size: .9rem;
-    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
     z-index: 10; // Keeps this above the form error message, leaves a little room for future things.
 }
 
@@ -21,7 +23,7 @@ header {
     transition: opacity 200ms ease, transform 200ms ease 50ms;
     transform: translate(0, -10%);
     width: 100%;
-    z-index: 1;
+    z-index: 2;
 
     &.has-error {
         opacity: 1;

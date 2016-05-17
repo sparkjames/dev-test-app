@@ -6,6 +6,9 @@ signup_form.addEventListener('submit', validate_form);
 // Validate the form fields then either add the .has-error classe to the relevant elements or submit the form.
 function validate_form(e){
 
+    // For testing purposes, the form will never submit.
+    e.preventDefault();
+
     // Initialize up some variables.
     var errors = []; // Store the IDs of the <input>s that do not validate.
     var error_div = document.getElementById('form-error'); // The element that contains the main slide-down error message.
@@ -52,14 +55,15 @@ function validate_form(e){
         // Now just add the 'has-error' class to the main error message <div>.
         addErrorClass(error_div);
 
-        // Prevent form submit
-        e.preventDefault();
+        // Prevent form submit, would normally have this here if the form was functional.
+        //e.preventDefault();
 
     } else {
-        form_is_valid = true;
+        // No errors, so set this to true if you want the form to submit.
+        //form_is_valid = true;
     }
 
-    //console.log(form_is_valid);
+
     return form_is_valid;
 }
 
@@ -68,23 +72,27 @@ function validate_form(e){
 // Functions that modify classes
 // Modified these from the examples on http://youmightnotneedjquery.com/, so they should be at least IE9+ compatible, if not IE8+ compatible.
 function addErrorClass(element){
+    var className = 'has-error';
+
     if( element.classList ){
-        element.classList.add('has-error');
+        element.classList.add(className);
     } else {
         element.className += ' ' + className;
     }
 }
 
 function removeClasses(element){
+    var className = 'has-error';
+
     if (element.classList) {
-        element.classList.remove('has-error');
+        element.classList.remove(className);
     } else {
         element.className = '';
     }
 }
 
 function toggleActive(element){
-    className = 'active-nav';
+    var className = 'active-nav';
 
     if (element.classList) {
         element.classList.toggle(className);
@@ -101,11 +109,18 @@ function toggleActive(element){
     }
 }
 
+
+// Initialize the padding-top for <body> and the top offset for the navigation, based on the height of the <header>.
+var header = document.querySelectorAll('header');
+//console.log( header[0].offsetHeight );
+
+document.body.style.paddingTop = header[0].offsetHeight + 'px';
+
 // NAVIGATION
 menu_button = document.getElementById('nav__toggle');
-console.log(menu_button);
+//console.log(menu_button);
 nav_element = document.getElementById('nav__main');
-console.log(nav_element);
+//console.log(nav_element);
 
 menu_button.addEventListener('click', toggle_nav);
 function toggle_nav(){
@@ -115,7 +130,7 @@ function toggle_nav(){
     // Get the difference in width between the navigation and the menu button.
     width_diff = nav_element.offsetWidth - menu_button.offsetWidth;
     var hamburger = document.querySelectorAll('#nav__toggle .icon-hamburger');
-    console.log(hamburger);
+    //console.log(hamburger);
     // Use that difference as the margin-left for the hamburger icon. This pushes the word 'Menu' to the left without moving the hamburger. Adding the width difference should make the nav and the button appear to be at equal widths. Using calc() for an additional .5em to account for the difference in padding between the menu items and the button.
     hamburger[0].style.marginLeft = 'calc('+width_diff+'px + .5em)';
 }
